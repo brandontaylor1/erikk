@@ -1,34 +1,3 @@
-// im// document.addEventListener("DOMContentLoaded", (event) => {
-//     gsap.to('.section-title', {
-//         scrollTrigger: {
-//             trigger: '.section-title',
-//             start: 'top 80%',
-//             toggleActions: 'play none none reverse',
-//         },
-//         y: -100,
-//         opacity: 1,
-//         duration: 1,
-//     });
-// }) from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// document.addEventListener("DOMContentLoaded", (event) => {
-//     gsap.to('.section-title', {
-//         scrollTrigger: {
-//             trigger: '.section-title',
-//             start: 'top 80%',
-//             toggleActions: 'play none none reverse',
-//         }
-//         y: -100,
-//         opacity: 1,
-//         duration: 1,
-        
-//     });
-// })
-
-
 // Menu toggle functionality
 const pagesLink = document.querySelector("#pages");
 const menu = document.querySelector("#menu");
@@ -77,3 +46,62 @@ if (mobileMenuToggle && navLinkContainer) {
     });
 }
 
+// Modal functionality
+const modal = document.getElementById("contactModal");
+const letsCreateBtns = document.querySelectorAll(".lets-create-btn");
+const modalClose = document.querySelector(".modal-close");
+const contactForm = document.getElementById("contactForm");
+
+// Open modal when any "LET'S CREATE" button is clicked
+letsCreateBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+});
+
+// Close modal when close button is clicked
+if (modalClose) {
+    modalClose.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    });
+}
+
+// Close modal when clicking outside the modal content
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+});
+
+// Handle form submission
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        // Log form data (in a real app, this would send to a server)
+        console.log("Form submitted:", data);
+        
+        // Show success message
+        alert("Thank you for your message! We'll get back to you soon.");
+        
+        // Reset form and close modal
+        contactForm.reset();
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    });
+}

@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css" integrity="sha512-8BU3emz11z9iF75b10oPjjpamM4Mz23yQFQymbtwyPN3mNWHxpgeqyrYnkIUP6A8KyAj5k2p3MiYLtYqew7gIw==" crossorigin="anonymous" referreferrerolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="description" content="Learn about ERIKK - a creative studio dedicated to exceptional design and brand transformation. Our story, mission, values and team.">
+    <meta name="keywords" content="about ERIKK, creative studio Berlin, design agency, branding team, our story">
+    <meta property="og:title" content="About - ERIKK">
+    <meta property="og:description" content="Creative vision and expertise in branding and design.">
+    <meta property="og:type" content="website">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css" integrity="sha512-8BU3emz11z9iF75b10oPjjpamM4Mz23yQFQymbtwyPN3mNWHxpgeqyrYnkIUP6A8KyAj5k2p3MiYLtYqew7gIw==" crossorigin="anonymous" referreferrerolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pages.css">
     <title>About - ERIKK</title>
@@ -30,7 +33,7 @@
                     <li><a href="#" id="pages">PAGES</a></li>
                 </ul>
                 <p>(4)</p>
-                <button>LET'S CREATE</button>
+                <button class="lets-create-btn">LET'S CREATE</button>
             </div>
             <div id="menu">
                 <div class="menu-container">
@@ -45,7 +48,7 @@
                         </ul>
                     </div>
                 </div>
-                <button>LET'S CREATE</button>
+                <button class="lets-create-btn">LET'S CREATE</button>
             </div>
         </nav>
     </header>
@@ -199,6 +202,46 @@
         </div>
     </footer>
 
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 class="modal-title">LET'S CREATE TOGETHER</h2>
+            <p class="modal-subtitle">Tell us about your project and let's bring your vision to life</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">NAME *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">COMPANY</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="service">SERVICE INTERESTED IN *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="branding">Branding</option>
+                        <option value="campaigns">Campaigns</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">MESSAGE *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">SEND MESSAGE</button>
+            </form>
+        </div>
+    </div>
+
     <script src="index.js"></script>
+    <script src="landing-animations.js"></script>
 </body>
 </html>
